@@ -1,0 +1,22 @@
+{
+	"version": "2",
+	"templates": [
+
+		{
+			"type": 1,
+			"title": "Node Red",
+			"name": "node-red",
+			"description": "Eclipse Mosquitto is an open source message broker which implements MQTT version 5, 3.1.1 and 3.1",
+			"platform": "linux",
+			"logo": "https://d1q6f0aelx0por.cloudfront.net/product-logos/library-eclipse-mosquitto-logo.png",
+			"image": "nodered/node-red",
+			"ports": [
+				"1880:1880/tcp"
+			],
+			"volumes": ["/data"],
+			"restart_policy": "always"
+		}
+
+        
+	]
+}

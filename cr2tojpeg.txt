@@ -1,0 +1,27 @@
+from PIL import Image
+import rawpy
+import imageio
+import os
+
+# Path to the CR2 file
+cr2_file = 'path_to_your_cr2_file.cr2'
+
+# Use rawpy to read the CR2 file
+with rawpy.imread(cr2_file) as raw:
+    # Extract the raw image data
+    rgb = raw.postprocess()
+
+# Save the raw image data as a temporary TIFF file
+temp_tiff_file = 'temp.tiff'
+imageio.imsave(temp_tiff_file, rgb)
+
+# Open the temporary TIFF file with Pillow
+with Image.open(temp_tiff_file) as img:
+    # Save the image as JPEG
+    jpeg_file = 'output.jpg'
+    img.save(jpeg_file, 'JPEG')
+
+# Remove the temporary TIFF file
+os.remove(temp_tiff_file)
+
+print(f"CR2 file converted to JPEG: {jpeg_file}")

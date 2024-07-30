@@ -1,0 +1,104 @@
+{
+  "version": "2",
+  "templates": [
+    
+    {
+      "type": 1,
+      "title": "Grafana",
+      "name": "grafana.bit.lan",
+      "description": "Docker monitoring tool grafana",
+      "categories": ["Monitoring"],
+      "platform": "linux",
+      "logo": "https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/grafana-icon.png",
+      "administrator_only": false,
+      "image": "grafana/grafana:latest-ubuntu",
+      "hostname": "grafana",
+      "restart_policy": "always",
+      "ports": ["3000:3000/tcp"],
+      "user": "www-data",
+      "volumes": [
+        {
+          "container": "/var/lib/grafana",
+          "bind": "/srv/grafana.bit.lan/data",
+          "readonly": false
+        },
+        {
+          "container": "/etc/grafana",
+          "bind": "/srv/grafana.bit.lan/conf",
+          "readonly": false
+        }
+       ],
+       
+      "labels": [
+        { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+      ]
+      },
+
+
+
+      {
+      "type": 1,
+      "title": "mosquitto",
+      "name": "mosquitto.bit.lan",
+      "description": "Docker image mosquito",
+      "categories": ["Docker"],
+      "platform": "linux",
+      "logo": "data:image/png;base64,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",
+      "administrator_only": false,
+      "image": "eclipse-mosquitto:2",
+      "hostname": "mosquitto",
+       "ports": ["1883:1883/tcp"],
+      "restart_policy": "always",
+       "volumes": [
+        {
+          "container": "/mosquitto/data",
+          "bind": "/srv/mosquitto.bit.lan/docker/data",
+          "readonly": false
+        },
+
+        {
+         "container": "/mosquitto/config",
+         "bind": "/srv/mosquitto.bit.lan/docker/config",
+         "readonly": false
+      }
+      ,
+
+        {
+         "container": "/mosquitto/log",
+         "bind": "/srv/mosquitto.bit.lan/docker/log",
+         "readonly": false
+      }
+       ],
+        "labels": [
+        { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+      ]
+      },
+      
+
+      
+      {
+      "type": 1,
+      "title": "influxdb",
+      "name": "influxdb.bit.lan",
+      "description": "Docker image influxdb",
+      "categories": ["Database"],
+      "platform": "linux",
+      "logo": "https://influxdata.github.io/branding/img/downloads/influxdata-logo--symbol--pool-alpha.png",
+      "administrator_only": false,
+      "image": "influxdb:2.1",
+      "ports": ["8086:8086/tcp"],
+      "hostname": "influxdb",
+      "restart_policy": "always",
+       "volumes": [
+        {
+          "container": "/var/lib/influxdb2",
+          "bind": "/srv/influxdb.bit.lan/data",
+          "readonly": false  
+        }
+       ],
+        "labels": [
+        { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+      ]
+      }
+      ]
+    }

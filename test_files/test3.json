@@ -1,0 +1,5143 @@
+
+{
+    "version": "2",
+    "templates":  [
+
+       {
+          "type": 1,
+          "title" : "postgresql",
+  "name": "postgresql.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/postgresql:10",
+  "hostname": "postgresql",
+  "restart_policy": "always",
+  "ports": ["8080:8080/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/postgresql/data",
+                    "bind": "/srv/postgresql.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/postgresql/config",
+                   "bind": "/srv/postgresql.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/postgresql/log",
+                   "bind": "/srv/postgresql.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "argo-workflow-controller",
+  "name": "argo-workflow-controller.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/argo-workflow-controller:3",
+  "hostname": "argo-workflow-controller",
+  "restart_policy": "always",
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "zookeeper",
+  "name": "zookeeper.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/zookeeper:3.8",
+  "hostname": "zookeeper",
+  "restart_policy": "always",
+  
+                 "volumes": [
+                  {
+                    "container": "/zookeeper/data",
+                    "bind": "/srv/zookeeper.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/zookeeper/config",
+                   "bind": "/srv/zookeeper.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/zookeeper/log",
+                   "bind": "/srv/zookeeper.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "kubeapps-apis",
+  "name": "kubeapps-apis.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/kubeapps-apis:2",
+  "hostname": "kubeapps-apis",
+  "restart_policy": "always",
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "kubeapps-apprepository-controller",
+  "name": "kubeapps-apprepository-controller.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/kubeapps-apprepository-controller:2",
+  "hostname": "kubeapps-apprepository-controller",
+  "restart_policy": "always",
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "kubeapps-asset-syncer",
+  "name": "kubeapps-asset-syncer.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/kubeapps-asset-syncer:2",
+  "hostname": "kubeapps-asset-syncer",
+  "restart_policy": "always",
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "kubeapps",
+  "name": "kubeapps.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/kubeapps-dashboard:2",
+  "hostname": "kubeapps",
+  "restart_policy": "always",
+  "ports": ["80:80/tcp"],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "kubeapps-kubeops",
+  "name": "kubeapps-kubeops.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/kubeapps-kubeops:2",
+  "hostname": "kubeapps-kubeops",
+  "restart_policy": "always",
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "kubeapps-pinniped-proxy",
+  "name": "kubeapps-pinniped-proxy.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/kubeapps-pinniped-proxy:2",
+  "hostname": "kubeapps-pinniped-proxy",
+  "restart_policy": "always",
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "kubectl",
+  "name": "kubectl.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/kubectl:1.25",
+  "hostname": "kubectl",
+  "restart_policy": "always",
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "kube-rbac-proxy",
+  "name": "kube-rbac-proxy.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/kube-rbac-proxy:0",
+  "hostname": "kube-rbac-proxy",
+  "restart_policy": "always",
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "kubernetes-event-exporter",
+  "name": "kubernetes-event-exporter.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/kubernetes-event-exporter:0",
+  "hostname": "kubernetes-event-exporter",
+  "restart_policy": "always",
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "argo-workflow-exec",
+  "name": "argo-workflow-exec.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/argo-workflow-exec:3",
+  "hostname": "argo-workflow-exec",
+  "restart_policy": "always",
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "kube-state-metrics",
+  "name": "kube-state-metrics.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/kube-state-metrics:2",
+  "hostname": "kube-state-metrics",
+  "restart_policy": "always",
+  "ports": ["8080:8080/tcp"],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "mariadb",
+  "name": "mariadb.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/mariadb:10.6",
+  "hostname": "mariadb",
+  "restart_policy": "always",
+  "ports": ["8000:8000/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/mariadb/data",
+                    "bind": "/srv/mariadb.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/mariadb/config",
+                   "bind": "/srv/mariadb.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/mariadb/log",
+                   "bind": "/srv/mariadb.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "logstash",
+  "name": "logstash.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/logstash:8",
+  "hostname": "logstash",
+  "restart_policy": "always",
+  "ports": ["8080:8080/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/logstash/data",
+                    "bind": "/srv/logstash.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/logstash/config",
+                   "bind": "/srv/logstash.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/logstash/log",
+                   "bind": "/srv/logstash.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "mariadb",
+  "name": "mariadb.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/mariadb:10.4",
+  "hostname": "mariadb",
+  "restart_policy": "always",
+  "ports": ["80:8080/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/mariadb/data",
+                    "bind": "/srv/mariadb.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/mariadb/config",
+                   "bind": "/srv/mariadb.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/mariadb/log",
+                   "bind": "/srv/mariadb.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "mariadb",
+  "name": "mariadb.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/mariadb:10.9",
+  "hostname": "mariadb",
+  "restart_policy": "always",
+  "ports": ["3306:3306/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/mariadb/data",
+                    "bind": "/srv/mariadb.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/mariadb/config",
+                   "bind": "/srv/mariadb.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/mariadb/log",
+                   "bind": "/srv/mariadb.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "mariadb-galera",
+  "name": "mariadb-galera.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/mariadb-galera:10.9",
+  "hostname": "mariadb-galera",
+  "restart_policy": "always",
+  "ports": ["3306:3306/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/mariadb-galera/data",
+                    "bind": "/srv/mariadb-galera.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/mariadb-galera/config",
+                   "bind": "/srv/mariadb-galera.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/mariadb-galera/log",
+                   "bind": "/srv/mariadb-galera.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "mariadb",
+  "name": "mariadb.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/mariadb:10.6",
+  "hostname": "mariadb",
+  "restart_policy": "always",
+  "ports": ["80:8080"],
+
+                 "volumes": [
+                  {
+                    "container": "/mariadb/data",
+                    "bind": "/srv/mariadb.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/mariadb/config",
+                   "bind": "/srv/mariadb.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/mariadb/log",
+                   "bind": "/srv/mariadb.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "mariadb",
+  "name": "mariadb.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/mariadb:10.6",
+  "hostname": "mariadb",
+  "restart_policy": "always",
+  "ports": ["80:8080/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/mariadb/data",
+                    "bind": "/srv/mariadb.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/mariadb/config",
+                   "bind": "/srv/mariadb.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/mariadb/log",
+                   "bind": "/srv/mariadb.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "memcached",
+  "name": "memcached.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/memcached:1",
+  "hostname": "memcached",
+  "restart_policy": "always",
+  "ports": ["11211:11211/tcp"],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "memcached-exporter",
+  "name": "memcached-exporter.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/memcached-exporter:0",
+  "hostname": "memcached-exporter",
+  "restart_policy": "always",
+  "ports": ["150:9150/tcp"],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "aspnet-core",
+  "name": "aspnet-core.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/aspnet-core:6",
+  "hostname": "aspnet-core",
+  "restart_policy": "always",
+  
+                 "volumes": [
+                  {
+                    "container": "/aspnet-core/data",
+                    "bind": "/srv/aspnet-core.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/aspnet-core/config",
+                   "bind": "/srv/aspnet-core.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/aspnet-core/log",
+                   "bind": "/srv/aspnet-core.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "metallb",
+  "name": "metallb.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/metallb-controller:0",
+  "hostname": "metallb",
+  "restart_policy": "always",
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "metallb-speaker",
+  "name": "metallb-speaker.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/metallb-speaker:0",
+  "hostname": "metallb-speaker",
+  "restart_policy": "always",
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "metrics-server",
+  "name": "metrics-server.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/metrics-server:0",
+  "hostname": "metrics-server",
+  "restart_policy": "always",
+  "ports": ["8443:8443/tcp"],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "minio",
+  "name": "minio.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/minio:2022",
+  "hostname": "minio",
+  "restart_policy": "always",
+  "ports": ["9000:9000/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/minio/data",
+                    "bind": "/srv/minio.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/minio/config",
+                   "bind": "/srv/minio.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/minio/log",
+                   "bind": "/srv/minio.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "minio-client",
+  "name": "minio-client.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/minio-client:2022",
+  "hostname": "minio-client",
+  "restart_policy": "always",
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "mongodb",
+  "name": "mongodb.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/mongodb:6.0",
+  "hostname": "mongodb",
+  "restart_policy": "always",
+  "ports": ["27017:27017"],
+                 "volumes": [
+                  {
+                    "container": "/mongodb/data",
+                    "bind": "/srv/mongodb.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/mongodb/config",
+                   "bind": "/srv/mongodb.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/mongodb/log",
+                   "bind": "/srv/mongodb.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "mongodb-exporter",
+  "name": "mongodb-exporter.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/mongodb-exporter:0",
+  "hostname": "mongodb-exporter",
+  "restart_policy": "always",
+  "ports": ["216:9216/tcp"],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "mongodb-sharded",
+  "name": "mongodb-sharded.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/mongodb-sharded:6.0",
+  "hostname": "mongodb-sharded",
+  "restart_policy": "always",
+  "ports": ["27017:27017"],
+                 "volumes": [
+                  {
+                    "container": "/mongodb-sharded/data",
+                    "bind": "/srv/mongodb-sharded.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/mongodb-sharded/config",
+                   "bind": "/srv/mongodb-sharded.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/mongodb-sharded/log",
+                   "bind": "/srv/mongodb-sharded.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "mariadb",
+  "name": "mariadb.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/mariadb:10.6",
+  "hostname": "mariadb",
+  "restart_policy": "always",
+  "ports": ["80:8080/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/mariadb/data",
+                    "bind": "/srv/mariadb.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/mariadb/config",
+                   "bind": "/srv/mariadb.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/mariadb/log",
+                   "bind": "/srv/mariadb.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "mxnet",
+  "name": "mxnet.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/mxnet:1",
+  "hostname": "mxnet",
+  "restart_policy": "always",
+  
+                 "volumes": [
+                  {
+                    "container": "/mxnet/data",
+                    "bind": "/srv/mxnet.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/mxnet/config",
+                   "bind": "/srv/mxnet.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/mxnet/log",
+                   "bind": "/srv/mxnet.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "aws-cli",
+  "name": "aws-cli.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/aws-cli:2",
+  "hostname": "aws-cli",
+  "restart_policy": "always",
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "mysql",
+  "name": "mysql.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/mysql:8.0",
+  "hostname": "mysql",
+  "restart_policy": "always",
+  "ports": ["3306:3306/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/mysql/data",
+                    "bind": "/srv/mysql.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/mysql/config",
+                   "bind": "/srv/mysql.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/mysql/log",
+                   "bind": "/srv/mysql.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "mysqld-exporter",
+  "name": "mysqld-exporter.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/mysqld-exporter:0",
+  "hostname": "mysqld-exporter",
+  "restart_policy": "always",
+  "ports": ["104:9104environment:-DATA_SOURCE_NAME=/tcp"],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "nats",
+  "name": "nats.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/nats:2",
+  "hostname": "nats",
+  "restart_policy": "always",
+  "ports": ["4222:4222/tcp"],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "nats-exporter",
+  "name": "nats-exporter.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/nats-exporter:0",
+  "hostname": "nats-exporter",
+  "restart_policy": "always",
+  "ports": ["777:7777/tcp"],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "neo4j",
+  "name": "neo4j.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/neo4j:4",
+  "hostname": "neo4j",
+  "restart_policy": "always",
+  "ports": ["7474:7474/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/neo4j/data",
+                    "bind": "/srv/neo4j.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/neo4j/config",
+                   "bind": "/srv/neo4j.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/neo4j/log",
+                   "bind": "/srv/neo4j.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "nginx",
+  "name": "nginx.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/nginx:1.23",
+  "hostname": "nginx",
+  "restart_policy": "always",
+  "ports": ["80:8080/tcp"],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "nginx-exporter",
+  "name": "nginx-exporter.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/nginx-exporter:0",
+  "hostname": "nginx-exporter",
+  "restart_policy": "always",
+  "ports": ["113:9113/tcp"],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "nginx-ingress-controller",
+  "name": "nginx-ingress-controller.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/nginx-ingress-controller:1",
+  "hostname": "nginx-ingress-controller",
+  "restart_policy": "always",
+  "ports": ["80:80/tcp"],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "nginx",
+  "name": "nginx.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/nginx-intel:0",
+  "hostname": "nginx",
+  "restart_policy": "always",
+  "ports": ["80:8080/tcp"],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "node",
+  "name": "node.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/node:18",
+  "hostname": "node",
+  "restart_policy": "always",
+  "ports": ["000:3000volumes:-.:/app/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/node/data",
+                    "bind": "/srv/node.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/node/config",
+                   "bind": "/srv/node.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/node/log",
+                   "bind": "/srv/node.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "azure-cli",
+  "name": "azure-cli.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/azure-cli:2",
+  "hostname": "azure-cli",
+  "restart_policy": "always",
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "node-exporter",
+  "name": "node-exporter.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/node-exporter:1",
+  "hostname": "node-exporter",
+  "restart_policy": "always",
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "oauth2-proxy",
+  "name": "oauth2-proxy.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/oauth2-proxy:7",
+  "hostname": "oauth2-proxy",
+  "restart_policy": "always",
+  "ports": ["8080:8080/tcp"],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "postgresql",
+  "name": "postgresql.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/postgresql:13",
+  "hostname": "postgresql",
+  "restart_policy": "always",
+  "ports": ["80:8069/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/postgresql/data",
+                    "bind": "/srv/postgresql.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/postgresql/config",
+                   "bind": "/srv/postgresql.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/postgresql/log",
+                   "bind": "/srv/postgresql.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "mariadb",
+  "name": "mariadb.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/mariadb:10.6",
+  "hostname": "mariadb",
+  "restart_policy": "always",
+  "ports": ["80:8080/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/mariadb/data",
+                    "bind": "/srv/mariadb.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/mariadb/config",
+                   "bind": "/srv/mariadb.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/mariadb/log",
+                   "bind": "/srv/mariadb.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "openldap",
+  "name": "openldap.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/openldap:2.6",
+  "hostname": "openldap",
+  "restart_policy": "always",
+  "ports": ["1389:1389/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/openldap/data",
+                    "bind": "/srv/openldap.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/openldap/config",
+                   "bind": "/srv/openldap.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/openldap/log",
+                   "bind": "/srv/openldap.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "openresty",
+  "name": "openresty.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/openresty:1.21",
+  "hostname": "openresty",
+  "restart_policy": "always",
+  "ports": ["80:8080/tcp"],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "oras",
+  "name": "oras.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/oras:0",
+  "hostname": "oras",
+  "restart_policy": "always",
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "mariadb",
+  "name": "mariadb.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/mariadb:10.6",
+  "hostname": "mariadb",
+  "restart_policy": "always",
+  "ports": ["80:8080/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/mariadb/data",
+                    "bind": "/srv/mariadb.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/mariadb/config",
+                   "bind": "/srv/mariadb.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/mariadb/log",
+                   "bind": "/srv/mariadb.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "mariadb",
+  "name": "mariadb.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/mariadb:10.6",
+  "hostname": "mariadb",
+  "restart_policy": "always",
+  "ports": ["80:8080/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/mariadb/data",
+                    "bind": "/srv/mariadb.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/mariadb/config",
+                   "bind": "/srv/mariadb.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/mariadb/log",
+                   "bind": "/srv/mariadb.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "mongodb",
+  "name": "mongodb.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/mongodb:5.0",
+  "hostname": "mongodb",
+  "restart_policy": "always",
+  "ports": ["1337:1337/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/mongodb/data",
+                    "bind": "/srv/mongodb.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/mongodb/config",
+                   "bind": "/srv/mongodb.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/mongodb/log",
+                   "bind": "/srv/mongodb.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "bitnami-shell",
+  "name": "bitnami-shell.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/bitnami-shell:11",
+  "hostname": "bitnami-shell",
+  "restart_policy": "always",
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "mongodb",
+  "name": "mongodb.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/mongodb:5.0",
+  "hostname": "mongodb",
+  "restart_policy": "always",
+  "ports": ["1337:1337/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/mongodb/data",
+                    "bind": "/srv/mongodb.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/mongodb/config",
+                   "bind": "/srv/mongodb.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/mongodb/log",
+                   "bind": "/srv/mongodb.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "percona-mysql",
+  "name": "percona-mysql.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/percona-mysql:8.0",
+  "hostname": "percona-mysql",
+  "restart_policy": "always",
+  "ports": ["3306:3306/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/percona-mysql/data",
+                    "bind": "/srv/percona-mysql.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/percona-mysql/config",
+                   "bind": "/srv/percona-mysql.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/percona-mysql/log",
+                   "bind": "/srv/percona-mysql.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "percona-xtrabackup",
+  "name": "percona-xtrabackup.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/percona-xtrabackup:8",
+  "hostname": "percona-xtrabackup",
+  "restart_policy": "always",
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "postgresql",
+  "name": "postgresql.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/postgresql:11",
+  "hostname": "postgresql",
+  "restart_policy": "always",
+  "ports": ["432:6432"],
+                 "volumes": [
+                  {
+                    "container": "/postgresql/data",
+                    "bind": "/srv/postgresql.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/postgresql/config",
+                   "bind": "/srv/postgresql.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/postgresql/log",
+                   "bind": "/srv/postgresql.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "pg-0",
+  "name": "pg-0.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/postgresql-repmgr:14",
+  "hostname": "pg-0",
+  "restart_policy": "always",
+  "ports": ["432/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/pg-0/data",
+                    "bind": "/srv/pg-0.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/pg-0/config",
+                   "bind": "/srv/pg-0.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/pg-0/log",
+                   "bind": "/srv/pg-0.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "mariadb",
+  "name": "mariadb.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/mariadb:10.6",
+  "hostname": "mariadb",
+  "restart_policy": "always",
+  "ports": ["80:8080/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/mariadb/data",
+                    "bind": "/srv/mariadb.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/mariadb/config",
+                   "bind": "/srv/mariadb.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/mariadb/log",
+                   "bind": "/srv/mariadb.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "php",
+  "name": "php.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/php-fpm:8.1",
+  "hostname": "php",
+  "restart_policy": "always",
+  "ports": ["000:9000/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/php/data",
+                    "bind": "/srv/php.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/php/config",
+                   "bind": "/srv/php.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/php/log",
+                   "bind": "/srv/php.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "mariadb",
+  "name": "mariadb.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/mariadb:10.6",
+  "hostname": "mariadb",
+  "restart_policy": "always",
+  "ports": ["80:8080/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/mariadb/data",
+                    "bind": "/srv/mariadb.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/mariadb/config",
+                   "bind": "/srv/mariadb.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/mariadb/log",
+                   "bind": "/srv/mariadb.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "pinniped",
+  "name": "pinniped.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/pinniped:0",
+  "hostname": "pinniped",
+  "restart_policy": "always",
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "postgres-exporter",
+  "name": "postgres-exporter.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/postgres-exporter:0",
+  "hostname": "postgres-exporter",
+  "restart_policy": "always",
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "blackbox-exporter",
+  "name": "blackbox-exporter.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/blackbox-exporter:0",
+  "hostname": "blackbox-exporter",
+  "restart_policy": "always",
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "postgresql",
+  "name": "postgresql.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/postgresql:14",
+  "hostname": "postgresql",
+  "restart_policy": "always",
+  "ports": ["5432:5432/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/postgresql/data",
+                    "bind": "/srv/postgresql.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/postgresql/config",
+                   "bind": "/srv/postgresql.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/postgresql/log",
+                   "bind": "/srv/postgresql.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "pg-0",
+  "name": "pg-0.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/postgresql-repmgr:14",
+  "hostname": "pg-0",
+  "restart_policy": "always",
+  "ports": ["432/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/pg-0/data",
+                    "bind": "/srv/pg-0.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/pg-0/config",
+                   "bind": "/srv/pg-0.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/pg-0/log",
+                   "bind": "/srv/pg-0.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "mariadb",
+  "name": "mariadb.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/mariadb:10.6",
+  "hostname": "mariadb",
+  "restart_policy": "always",
+  "ports": ["80:8080/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/mariadb/data",
+                    "bind": "/srv/mariadb.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/mariadb/config",
+                   "bind": "/srv/mariadb.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/mariadb/log",
+                   "bind": "/srv/mariadb.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "prometheus",
+  "name": "prometheus.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/prometheus:2",
+  "hostname": "prometheus",
+  "restart_policy": "always",
+  "ports": ["9090:9090/tcp"],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "prometheus-operator",
+  "name": "prometheus-operator.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/prometheus-operator:0",
+  "hostname": "prometheus-operator",
+  "restart_policy": "always",
+  "ports": ["080:8080/tcp"],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "prometheus-rsocket-proxy",
+  "name": "prometheus-rsocket-proxy.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/prometheus-rsocket-proxy:1",
+  "hostname": "prometheus-rsocket-proxy",
+  "restart_policy": "always",
+  "ports": ["8080:8080/tcp"],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "promtail",
+  "name": "promtail.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/promtail:2",
+  "hostname": "promtail",
+  "restart_policy": "always",
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "pushgateway",
+  "name": "pushgateway.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/pushgateway:1",
+  "hostname": "pushgateway",
+  "restart_policy": "always",
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "python",
+  "name": "python.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/python:3.10",
+  "hostname": "python",
+  "restart_policy": "always",
+  "ports": ["000:8000volumes:-.:/app/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/python/data",
+                    "bind": "/srv/python.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/python/config",
+                   "bind": "/srv/python.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/python/log",
+                   "bind": "/srv/python.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "pytorch",
+  "name": "pytorch.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/pytorch:1",
+  "hostname": "pytorch",
+  "restart_policy": "always",
+  
+                 "volumes": [
+                  {
+                    "container": "/pytorch/data",
+                    "bind": "/srv/pytorch.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/pytorch/config",
+                   "bind": "/srv/pytorch.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/pytorch/log",
+                   "bind": "/srv/pytorch.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "cainjector",
+  "name": "cainjector.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/cainjector:1",
+  "hostname": "cainjector",
+  "restart_policy": "always",
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "pytorch",
+  "name": "pytorch.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/pytorch-intel:1",
+  "hostname": "pytorch",
+  "restart_policy": "always",
+  
+                 "volumes": [
+                  {
+                    "container": "/pytorch/data",
+                    "bind": "/srv/pytorch.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/pytorch/config",
+                   "bind": "/srv/pytorch.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/pytorch/log",
+                   "bind": "/srv/pytorch.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "rabbitmq",
+  "name": "rabbitmq.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/rabbitmq:3.10",
+  "hostname": "rabbitmq",
+  "restart_policy": "always",
+  "ports": ["4369:4369/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/rabbitmq/data",
+                    "bind": "/srv/rabbitmq.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/rabbitmq/config",
+                   "bind": "/srv/rabbitmq.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/rabbitmq/log",
+                   "bind": "/srv/rabbitmq.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "rabbitmq-cluster-operator",
+  "name": "rabbitmq-cluster-operator.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/rabbitmq-cluster-operator:1",
+  "hostname": "rabbitmq-cluster-operator",
+  "restart_policy": "always",
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "mariadb",
+  "name": "mariadb.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/mariadb:10.6",
+  "hostname": "mariadb",
+  "restart_policy": "always",
+  "ports": ["3000:3000/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/mariadb/data",
+                    "bind": "/srv/mariadb.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/mariadb/config",
+                   "bind": "/srv/mariadb.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/mariadb/log",
+                   "bind": "/srv/mariadb.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "rclone",
+  "name": "rclone.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/rclone:1",
+  "hostname": "rclone",
+  "restart_policy": "always",
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "redis",
+  "name": "redis.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/redis:7.0",
+  "hostname": "redis",
+  "restart_policy": "always",
+  "ports": ["6379:6379/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/redis/data",
+                    "bind": "/srv/redis.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/redis/config",
+                   "bind": "/srv/redis.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/redis/log",
+                   "bind": "/srv/redis.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "redis-node-0",
+  "name": "redis-node-0.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/redis-cluster:7.0",
+  "hostname": "redis-node-0",
+  "restart_policy": "always",
+  
+                 "volumes": [
+                  {
+                    "container": "/redis-node-0/data",
+                    "bind": "/srv/redis-node-0.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/redis-node-0/config",
+                   "bind": "/srv/redis-node-0.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/redis-node-0/log",
+                   "bind": "/srv/redis-node-0.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "redis-exporter",
+  "name": "redis-exporter.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/redis-exporter:",
+  "hostname": "redis-exporter",
+  "restart_policy": "always",
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "redis-sentinel",
+  "name": "redis-sentinel.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/redis-sentinel:7.0",
+  "hostname": "redis-sentinel",
+  "restart_policy": "always",
+  
+                 "volumes": [
+                  {
+                    "container": "/redis-sentinel/data",
+                    "bind": "/srv/redis-sentinel.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/redis-sentinel/config",
+                   "bind": "/srv/redis-sentinel.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/redis-sentinel/log",
+                   "bind": "/srv/redis-sentinel.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "mariadb",
+  "name": "mariadb.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/mariadb:10.6",
+  "hostname": "mariadb",
+  "restart_policy": "always",
+  "ports": ["80:3000/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/mariadb/data",
+                    "bind": "/srv/mariadb.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/mariadb/config",
+                   "bind": "/srv/mariadb.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/mariadb/log",
+                   "bind": "/srv/mariadb.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "cassandra",
+  "name": "cassandra.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/cassandra:4.0",
+  "hostname": "cassandra",
+  "restart_policy": "always",
+  "ports": ["7000:7000/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/cassandra/data",
+                    "bind": "/srv/cassandra.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/cassandra/config",
+                   "bind": "/srv/cassandra.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/cassandra/log",
+                   "bind": "/srv/cassandra.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "mariadb",
+  "name": "mariadb.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/mariadb:10.6",
+  "hostname": "mariadb",
+  "restart_policy": "always",
+  "ports": ["80:8080/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/mariadb/data",
+                    "bind": "/srv/mariadb.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/mariadb/config",
+                   "bind": "/srv/mariadb.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/mariadb/log",
+                   "bind": "/srv/mariadb.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "rmq-default-credential-updater",
+  "name": "rmq-default-credential-updater.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/rmq-default-credential-updater:1",
+  "hostname": "rmq-default-credential-updater",
+  "restart_policy": "always",
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "rmq-messaging-topology-operator",
+  "name": "rmq-messaging-topology-operator.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/rmq-messaging-topology-operator:1",
+  "hostname": "rmq-messaging-topology-operator",
+  "restart_policy": "always",
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "ruby",
+  "name": "ruby.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/ruby:3.1",
+  "hostname": "ruby",
+  "restart_policy": "always",
+  "ports": ["000:3000volumes:-.:/app/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/ruby/data",
+                    "bind": "/srv/ruby.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/ruby/config",
+                   "bind": "/srv/ruby.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/ruby/log",
+                   "bind": "/srv/ruby.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "zookeeper",
+  "name": "zookeeper.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/zookeeper:3.8",
+  "hostname": "zookeeper",
+  "restart_policy": "always",
+  "ports": ["8081:8081/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/zookeeper/data",
+                    "bind": "/srv/zookeeper.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/zookeeper/config",
+                   "bind": "/srv/zookeeper.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/zookeeper/log",
+                   "bind": "/srv/zookeeper.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "scikit",
+  "name": "scikit.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/scikit-learn-intel:2021",
+  "hostname": "scikit",
+  "restart_policy": "always",
+  
+                 "volumes": [
+                  {
+                    "container": "/scikit/data",
+                    "bind": "/srv/scikit.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/scikit/config",
+                   "bind": "/srv/scikit.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/scikit/log",
+                   "bind": "/srv/scikit.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "myapp",
+  "name": "myapp.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/sealed-secrets:0",
+  "hostname": "myapp",
+  "restart_policy": "always",
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "solr",
+  "name": "solr.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/solr:9",
+  "hostname": "solr",
+  "restart_policy": "always",
+  "ports": ["8983:8983/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/solr/data",
+                    "bind": "/srv/solr.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/solr/config",
+                   "bind": "/srv/solr.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/solr/log",
+                   "bind": "/srv/solr.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "postgresql",
+  "name": "postgresql.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/postgresql:13",
+  "hostname": "postgresql",
+  "restart_policy": "always",
+  "ports": ["80:9000/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/postgresql/data",
+                    "bind": "/srv/postgresql.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/postgresql/config",
+                   "bind": "/srv/postgresql.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/postgresql/log",
+                   "bind": "/srv/postgresql.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "spark",
+  "name": "spark.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/spark:3.3",
+  "hostname": "spark",
+  "restart_policy": "always",
+  "ports": ["8080:8080/tcp"],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "cassandra-exporter",
+  "name": "cassandra-exporter.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/cassandra-exporter:2",
+  "hostname": "cassandra-exporter",
+  "restart_policy": "always",
+  "ports": ["080:8080/tcp"],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "spring-cloud-dataflow",
+  "name": "spring-cloud-dataflow.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/spring-cloud-dataflow:2",
+  "hostname": "spring-cloud-dataflow",
+  "restart_policy": "always",
+  "ports": ["9393:9393/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/spring-cloud-dataflow/data",
+                    "bind": "/srv/spring-cloud-dataflow.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/spring-cloud-dataflow/config",
+                   "bind": "/srv/spring-cloud-dataflow.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/spring-cloud-dataflow/log",
+                   "bind": "/srv/spring-cloud-dataflow.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "spring-cloud-dataflow-composed-task-runner",
+  "name": "spring-cloud-dataflow-composed-task-runner.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/spring-cloud-dataflow-composed-task-runner:2",
+  "hostname": "spring-cloud-dataflow-composed-task-runner",
+  "restart_policy": "always",
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "spring-cloud-dataflow-shell",
+  "name": "spring-cloud-dataflow-shell.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/spring-cloud-dataflow-shell:2",
+  "hostname": "spring-cloud-dataflow-shell",
+  "restart_policy": "always",
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "spring-cloud-skipper",
+  "name": "spring-cloud-skipper.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/spring-cloud-skipper:2",
+  "hostname": "spring-cloud-skipper",
+  "restart_policy": "always",
+  "ports": ["7577:7577/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/spring-cloud-skipper/data",
+                    "bind": "/srv/spring-cloud-skipper.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/spring-cloud-skipper/config",
+                   "bind": "/srv/spring-cloud-skipper.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/spring-cloud-skipper/log",
+                   "bind": "/srv/spring-cloud-skipper.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "spring-cloud-skipper-shell",
+  "name": "spring-cloud-skipper-shell.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/spring-cloud-skipper-shell:2",
+  "hostname": "spring-cloud-skipper-shell",
+  "restart_policy": "always",
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "mariadb",
+  "name": "mariadb.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/mariadb:10.6",
+  "hostname": "mariadb",
+  "restart_policy": "always",
+  "ports": ["80:8080/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/mariadb/data",
+                    "bind": "/srv/mariadb.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/mariadb/config",
+                   "bind": "/srv/mariadb.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/mariadb/log",
+                   "bind": "/srv/mariadb.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "mariadb",
+  "name": "mariadb.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/mariadb:10.6",
+  "hostname": "mariadb",
+  "restart_policy": "always",
+  "ports": ["8000:8000/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/mariadb/data",
+                    "bind": "/srv/mariadb.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/mariadb/config",
+                   "bind": "/srv/mariadb.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/mariadb/log",
+                   "bind": "/srv/mariadb.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "telegraf",
+  "name": "telegraf.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/telegraf:1",
+  "hostname": "telegraf",
+  "restart_policy": "always",
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "tensorflow",
+  "name": "tensorflow.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/tensorflow-intel:2",
+  "hostname": "tensorflow",
+  "restart_policy": "always",
+  
+                 "volumes": [
+                  {
+                    "container": "/tensorflow/data",
+                    "bind": "/srv/tensorflow.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/tensorflow/config",
+                   "bind": "/srv/tensorflow.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/tensorflow/log",
+                   "bind": "/srv/tensorflow.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "tensorflow-serving",
+  "name": "tensorflow-serving.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/tensorflow-serving:2",
+  "hostname": "tensorflow-serving",
+  "restart_policy": "always",
+  "ports": ["500:8500/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/tensorflow-serving/data",
+                    "bind": "/srv/tensorflow-serving.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/tensorflow-serving/config",
+                   "bind": "/srv/tensorflow-serving.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/tensorflow-serving/log",
+                   "bind": "/srv/tensorflow-serving.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "airflow-exporter",
+  "name": "airflow-exporter.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/airflow-exporter:0",
+  "hostname": "airflow-exporter",
+  "restart_policy": "always",
+  "ports": ["112:9112/tcp"],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "cert-manager",
+  "name": "cert-manager.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/cert-manager:1",
+  "hostname": "cert-manager",
+  "restart_policy": "always",
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "tensorflow-serving",
+  "name": "tensorflow-serving.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/tensorflow-serving:2",
+  "hostname": "tensorflow-serving",
+  "restart_policy": "always",
+  "ports": ["8500:8500/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/tensorflow-serving/data",
+                    "bind": "/srv/tensorflow-serving.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/tensorflow-serving/config",
+                   "bind": "/srv/tensorflow-serving.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/tensorflow-serving/log",
+                   "bind": "/srv/tensorflow-serving.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "thanos",
+  "name": "thanos.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/thanos:0",
+  "hostname": "thanos",
+  "restart_policy": "always",
+  "ports": ["9090:9090/tcp"],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "tomcat",
+  "name": "tomcat.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/tomcat:10",
+  "hostname": "tomcat",
+  "restart_policy": "always",
+  "ports": ["8080:8080/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/tomcat/data",
+                    "bind": "/srv/tomcat.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/tomcat/config",
+                   "bind": "/srv/tomcat.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/tomcat/log",
+                   "bind": "/srv/tomcat.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "trivy",
+  "name": "trivy.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/trivy:0",
+  "hostname": "trivy",
+  "restart_policy": "always",
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "wavefront-hpa-adapter",
+  "name": "wavefront-hpa-adapter.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/wavefront-hpa-adapter:0",
+  "hostname": "wavefront-hpa-adapter",
+  "restart_policy": "always",
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "wavefront",
+  "name": "wavefront.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/wavefront-kubernetes-collector:1",
+  "hostname": "wavefront",
+  "restart_policy": "always",
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "wavefront-prometheus-storage-adapter",
+  "name": "wavefront-prometheus-storage-adapter.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/wavefront-prometheus-storage-adapter:1",
+  "hostname": "wavefront-prometheus-storage-adapter",
+  "restart_policy": "always",
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "wavefront-proxy",
+  "name": "wavefront-proxy.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/wavefront-proxy:11",
+  "hostname": "wavefront-proxy",
+  "restart_policy": "always",
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "wildfly",
+  "name": "wildfly.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/wildfly:26",
+  "hostname": "wildfly",
+  "restart_policy": "always",
+  "ports": ["8080:8080/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/wildfly/data",
+                    "bind": "/srv/wildfly.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/wildfly/config",
+                   "bind": "/srv/wildfly.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/wildfly/log",
+                   "bind": "/srv/wildfly.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "mariadb",
+  "name": "mariadb.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/mariadb:10.6",
+  "hostname": "mariadb",
+  "restart_policy": "always",
+  "ports": ["80:8080/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/mariadb/data",
+                    "bind": "/srv/mariadb.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/mariadb/config",
+                   "bind": "/srv/mariadb.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/mariadb/log",
+                   "bind": "/srv/mariadb.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "cert-manager-webhook",
+  "name": "cert-manager-webhook.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/cert-manager-webhook:1",
+  "hostname": "cert-manager-webhook",
+  "restart_policy": "always",
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "mariadb",
+  "name": "mariadb.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/mariadb:10.6",
+  "hostname": "mariadb",
+  "restart_policy": "always",
+  "ports": ["80:8080/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/mariadb/data",
+                    "bind": "/srv/mariadb.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/mariadb/config",
+                   "bind": "/srv/mariadb.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/mariadb/log",
+                   "bind": "/srv/mariadb.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "mariadb",
+  "name": "mariadb.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/mariadb:10.6",
+  "hostname": "mariadb",
+  "restart_policy": "always",
+  "ports": ["80:8080/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/mariadb/data",
+                    "bind": "/srv/mariadb.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/mariadb/config",
+                   "bind": "/srv/mariadb.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/mariadb/log",
+                   "bind": "/srv/mariadb.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "xgboost",
+  "name": "xgboost.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/xgboost-intel:1",
+  "hostname": "xgboost",
+  "restart_policy": "always",
+  
+                 "volumes": [
+                  {
+                    "container": "/xgboost/data",
+                    "bind": "/srv/xgboost.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/xgboost/config",
+                   "bind": "/srv/xgboost.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/xgboost/log",
+                   "bind": "/srv/xgboost.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "zookeeper",
+  "name": "zookeeper.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/zookeeper:3.8",
+  "hostname": "zookeeper",
+  "restart_policy": "always",
+  "ports": ["2181:2181/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/zookeeper/data",
+                    "bind": "/srv/zookeeper.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/zookeeper/config",
+                   "bind": "/srv/zookeeper.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/zookeeper/log",
+                   "bind": "/srv/zookeeper.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "chartmuseum",
+  "name": "chartmuseum.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/chartmuseum:0",
+  "hostname": "chartmuseum",
+  "restart_policy": "always",
+  "ports": ["8080:8080/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/chartmuseum/data",
+                    "bind": "/srv/chartmuseum.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/chartmuseum/config",
+                   "bind": "/srv/chartmuseum.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/chartmuseum/log",
+                   "bind": "/srv/chartmuseum.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "clickhouse",
+  "name": "clickhouse.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/clickhouse:22.8",
+  "hostname": "clickhouse",
+  "restart_policy": "always",
+  "ports": ["8123:8123/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/clickhouse/data",
+                    "bind": "/srv/clickhouse.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/clickhouse/config",
+                   "bind": "/srv/clickhouse.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/clickhouse/log",
+                   "bind": "/srv/clickhouse.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "cluster-autoscaler",
+  "name": "cluster-autoscaler.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/cluster-autoscaler:1",
+  "hostname": "cluster-autoscaler",
+  "restart_policy": "always",
+  
+                 "volumes": [
+                  {
+                    "container": "/cluster-autoscaler/data",
+                    "bind": "/srv/cluster-autoscaler.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/cluster-autoscaler/config",
+                   "bind": "/srv/cluster-autoscaler.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/cluster-autoscaler/log",
+                   "bind": "/srv/cluster-autoscaler.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "mariadb",
+  "name": "mariadb.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/mariadb:10.6",
+  "hostname": "mariadb",
+  "restart_policy": "always",
+  "ports": ["8000:8000/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/mariadb/data",
+                    "bind": "/srv/mariadb.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/mariadb/config",
+                   "bind": "/srv/mariadb.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/mariadb/log",
+                   "bind": "/srv/mariadb.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "postgresql",
+  "name": "postgresql.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/postgresql:11",
+  "hostname": "postgresql",
+  "restart_policy": "always",
+  
+                 "volumes": [
+                  {
+                    "container": "/postgresql/data",
+                    "bind": "/srv/postgresql.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/postgresql/config",
+                   "bind": "/srv/postgresql.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/postgresql/log",
+                   "bind": "/srv/postgresql.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "configmap-reload",
+  "name": "configmap-reload.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/configmap-reload:0",
+  "hostname": "configmap-reload",
+  "restart_policy": "always",
+  "ports": ["080:8080/tcp"],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "configurable-http-proxy",
+  "name": "configurable-http-proxy.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/configurable-http-proxy:4",
+  "hostname": "configurable-http-proxy",
+  "restart_policy": "always",
+  "ports": ["000:8000/tcp"],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "consul",
+  "name": "consul.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/consul:1",
+  "hostname": "consul",
+  "restart_policy": "always",
+  "ports": ["8300:8300/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/consul/data",
+                    "bind": "/srv/consul.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/consul/config",
+                   "bind": "/srv/consul.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/consul/log",
+                   "bind": "/srv/consul.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "airflow-scheduler",
+  "name": "airflow-scheduler.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/airflow-scheduler:2",
+  "hostname": "airflow-scheduler",
+  "restart_policy": "always",
+  
+                 "volumes": [
+                  {
+                    "container": "/airflow-scheduler/data",
+                    "bind": "/srv/airflow-scheduler.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/airflow-scheduler/config",
+                   "bind": "/srv/airflow-scheduler.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/airflow-scheduler/log",
+                   "bind": "/srv/airflow-scheduler.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "consul-exporter",
+  "name": "consul-exporter.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/consul-exporter:0",
+  "hostname": "consul-exporter",
+  "restart_policy": "always",
+  "ports": ["107:9107/tcp"],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "contour",
+  "name": "contour.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/contour:1.22",
+  "hostname": "contour",
+  "restart_policy": "always",
+  
+                 "volumes": [
+                  {
+                    "container": "/contour/data",
+                    "bind": "/srv/contour.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/contour/config",
+                   "bind": "/srv/contour.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/contour/log",
+                   "bind": "/srv/contour.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "contour-operator",
+  "name": "contour-operator.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/contour-operator:1.22",
+  "hostname": "contour-operator",
+  "restart_policy": "always",
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "cosign",
+  "name": "cosign.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/cosign:",
+  "hostname": "cosign",
+  "restart_policy": "always",
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "couchdb",
+  "name": "couchdb.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/couchdb:3",
+  "hostname": "couchdb",
+  "restart_policy": "always",
+  "ports": ["5984:5984/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/couchdb/data",
+                    "bind": "/srv/couchdb.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/couchdb/config",
+                   "bind": "/srv/couchdb.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/couchdb/log",
+                   "bind": "/srv/couchdb.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "dex",
+  "name": "dex.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/dex:2",
+  "hostname": "dex",
+  "restart_policy": "always",
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "postgresql",
+  "name": "postgresql.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/postgresql:11",
+  "hostname": "postgresql",
+  "restart_policy": "always",
+  "ports": ["80:3000/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/postgresql/data",
+                    "bind": "/srv/postgresql.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/postgresql/config",
+                   "bind": "/srv/postgresql.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/postgresql/log",
+                   "bind": "/srv/postgresql.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "dokuwiki",
+  "name": "dokuwiki.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/dokuwiki:20220731",
+  "hostname": "dokuwiki",
+  "restart_policy": "always",
+  "ports": ["80:8080/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/dokuwiki/data",
+                    "bind": "/srv/dokuwiki.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/dokuwiki/config",
+                   "bind": "/srv/dokuwiki.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/dokuwiki/log",
+                   "bind": "/srv/dokuwiki.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "dotnet",
+  "name": "dotnet.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/dotnet:6",
+  "hostname": "dotnet",
+  "restart_policy": "always",
+  
+                 "volumes": [
+                  {
+                    "container": "/dotnet/data",
+                    "bind": "/srv/dotnet.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/dotnet/config",
+                   "bind": "/srv/dotnet.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/dotnet/log",
+                   "bind": "/srv/dotnet.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "dotnet-sdk",
+  "name": "dotnet-sdk.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/dotnet-sdk:6",
+  "hostname": "dotnet-sdk",
+  "restart_policy": "always",
+  
+                 "volumes": [
+                  {
+                    "container": "/dotnet-sdk/data",
+                    "bind": "/srv/dotnet-sdk.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/dotnet-sdk/config",
+                   "bind": "/srv/dotnet-sdk.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/dotnet-sdk/log",
+                   "bind": "/srv/dotnet-sdk.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "airflow-worker",
+  "name": "airflow-worker.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/airflow-worker:2",
+  "hostname": "airflow-worker",
+  "restart_policy": "always",
+  
+                 "volumes": [
+                  {
+                    "container": "/airflow-worker/data",
+                    "bind": "/srv/airflow-worker.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/airflow-worker/config",
+                   "bind": "/srv/airflow-worker.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/airflow-worker/log",
+                   "bind": "/srv/airflow-worker.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "mariadb",
+  "name": "mariadb.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/mariadb:10.6",
+  "hostname": "mariadb",
+  "restart_policy": "always",
+  "ports": ["80:8080/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/mariadb/data",
+                    "bind": "/srv/mariadb.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/mariadb/config",
+                   "bind": "/srv/mariadb.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/mariadb/log",
+                   "bind": "/srv/mariadb.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "mariadb",
+  "name": "mariadb.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/mariadb:10.6",
+  "hostname": "mariadb",
+  "restart_policy": "always",
+  "ports": ["80:8080/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/mariadb/data",
+                    "bind": "/srv/mariadb.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/mariadb/config",
+                   "bind": "/srv/mariadb.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/mariadb/log",
+                   "bind": "/srv/mariadb.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "mariadb",
+  "name": "mariadb.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/mariadb:10.6",
+  "hostname": "mariadb",
+  "restart_policy": "always",
+  "ports": ["80:8080/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/mariadb/data",
+                    "bind": "/srv/mariadb.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/mariadb/config",
+                   "bind": "/srv/mariadb.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/mariadb/log",
+                   "bind": "/srv/mariadb.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "mariadb",
+  "name": "mariadb.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/mariadb:10.6",
+  "hostname": "mariadb",
+  "restart_policy": "always",
+  "ports": ["8080:8080/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/mariadb/data",
+                    "bind": "/srv/mariadb.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/mariadb/config",
+                   "bind": "/srv/mariadb.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/mariadb/log",
+                   "bind": "/srv/mariadb.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "elasticsearch",
+  "name": "elasticsearch.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/elasticsearch:8",
+  "hostname": "elasticsearch",
+  "restart_policy": "always",
+  "ports": ["9200:9200/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/elasticsearch/data",
+                    "bind": "/srv/elasticsearch.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/elasticsearch/config",
+                   "bind": "/srv/elasticsearch.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/elasticsearch/log",
+                   "bind": "/srv/elasticsearch.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "elasticsearch-exporter",
+  "name": "elasticsearch-exporter.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/elasticsearch-exporter:1",
+  "hostname": "elasticsearch-exporter",
+  "restart_policy": "always",
+  "ports": ["9114:9114/tcp"],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "envoy",
+  "name": "envoy.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/envoy:1.23",
+  "hostname": "envoy",
+  "restart_policy": "always",
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "envoy",
+  "name": "envoy.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/envoy-intel:1.20",
+  "hostname": "envoy",
+  "restart_policy": "always",
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "etcd",
+  "name": "etcd.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/etcd:3.5",
+  "hostname": "etcd",
+  "restart_policy": "always",
+  
+                 "volumes": [
+                  {
+                    "container": "/etcd/data",
+                    "bind": "/srv/etcd.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/etcd/config",
+                   "bind": "/srv/etcd.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/etcd/log",
+                   "bind": "/srv/etcd.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "mongodb",
+  "name": "mongodb.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/mongodb:5.0",
+  "hostname": "mongodb",
+  "restart_policy": "always",
+  "ports": ["3000:3000/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/mongodb/data",
+                    "bind": "/srv/mongodb.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/mongodb/config",
+                   "bind": "/srv/mongodb.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/mongodb/log",
+                   "bind": "/srv/mongodb.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "alertmanager",
+  "name": "alertmanager.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/alertmanager:0",
+  "hostname": "alertmanager",
+  "restart_policy": "always",
+  "ports": ["9093:9093/tcp"],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "external-dns",
+  "name": "external-dns.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/external-dns:0",
+  "hostname": "external-dns",
+  "restart_policy": "always",
+  "ports": ["7979:7979/tcp"],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "fluent-bit",
+  "name": "fluent-bit.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/fluent-bit:1",
+  "hostname": "fluent-bit",
+  "restart_policy": "always",
+  "ports": ["2020:2020/tcp"],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "fluentd",
+  "name": "fluentd.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/fluentd:1",
+  "hostname": "fluentd",
+  "restart_policy": "always",
+  "ports": ["24224:24224/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/fluentd/data",
+                    "bind": "/srv/fluentd.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/fluentd/config",
+                   "bind": "/srv/fluentd.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/fluentd/log",
+                   "bind": "/srv/fluentd.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "geode",
+  "name": "geode.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/geode:1",
+  "hostname": "geode",
+  "restart_policy": "always",
+  "ports": ["7070:7070/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/geode/data",
+                    "bind": "/srv/geode.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/geode/config",
+                   "bind": "/srv/geode.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/geode/log",
+                   "bind": "/srv/geode.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "mysql",
+  "name": "mysql.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/mysql:8.0",
+  "hostname": "mysql",
+  "restart_policy": "always",
+  "ports": ["80:2368/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/mysql/data",
+                    "bind": "/srv/mysql.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/mysql/config",
+                   "bind": "/srv/mysql.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/mysql/log",
+                   "bind": "/srv/mysql.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "git",
+  "name": "git.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/git:2",
+  "hostname": "git",
+  "restart_policy": "always",
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "gitlab-runner",
+  "name": "gitlab-runner.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/gitlab-runner:15",
+  "hostname": "gitlab-runner",
+  "restart_policy": "always",
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "gitlab-runner-helper",
+  "name": "gitlab-runner-helper.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/gitlab-runner-helper:15",
+  "hostname": "gitlab-runner-helper",
+  "restart_policy": "always",
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "golang",
+  "name": "golang.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/golang:1.19",
+  "hostname": "golang",
+  "restart_policy": "always",
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "google-cloud-sdk",
+  "name": "google-cloud-sdk.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/google-cloud-sdk:0",
+  "hostname": "google-cloud-sdk",
+  "restart_policy": "always",
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "apache",
+  "name": "apache.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/apache:2.4",
+  "hostname": "apache",
+  "restart_policy": "always",
+  "ports": ["0:8080-443:8443/tcp"],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "gradle",
+  "name": "gradle.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/gradle:7",
+  "hostname": "gradle",
+  "restart_policy": "always",
+  
+                 "volumes": [
+                  {
+                    "container": "/gradle/data",
+                    "bind": "/srv/gradle.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/gradle/config",
+                   "bind": "/srv/gradle.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/gradle/log",
+                   "bind": "/srv/gradle.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "grafana",
+  "name": "grafana.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/grafana:9",
+  "hostname": "grafana",
+  "restart_policy": "always",
+  "ports": ["3000:3000/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/grafana/data",
+                    "bind": "/srv/grafana.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/grafana/config",
+                   "bind": "/srv/grafana.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/grafana/log",
+                   "bind": "/srv/grafana.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "grafana-image-renderer",
+  "name": "grafana-image-renderer.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/grafana-image-renderer:3",
+  "hostname": "grafana-image-renderer",
+  "restart_policy": "always",
+  "ports": ["8080:8080/tcp"],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "grafana-loki",
+  "name": "grafana-loki.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/grafana-loki:2",
+  "hostname": "grafana-loki",
+  "restart_policy": "always",
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "grafana-operator",
+  "name": "grafana-operator.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/grafana-operator:4",
+  "hostname": "grafana-operator",
+  "restart_policy": "always",
+  "ports": ["080:8080/tcp"],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "grafana-tempo",
+  "name": "grafana-tempo.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/grafana-tempo:1",
+  "hostname": "grafana-tempo",
+  "restart_policy": "always",
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "grafana-tempo-query",
+  "name": "grafana-tempo-query.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/grafana-tempo-query:1",
+  "hostname": "grafana-tempo-query",
+  "restart_policy": "always",
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "grafana-tempo-vulture",
+  "name": "grafana-tempo-vulture.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/grafana-tempo-vulture:1",
+  "hostname": "grafana-tempo-vulture",
+  "restart_policy": "always",
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "redis",
+  "name": "redis.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/gramine-redis-intel:1",
+  "hostname": "redis",
+  "restart_policy": "always",
+  "ports": ["6379:6379/tcp"],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "haproxy",
+  "name": "haproxy.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/haproxy:2",
+  "hostname": "haproxy",
+  "restart_policy": "always",
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "apache-exporter",
+  "name": "apache-exporter.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/apache-exporter:0",
+  "hostname": "apache-exporter",
+  "restart_policy": "always",
+  "ports": ["117:9117/tcp"],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "haproxy",
+  "name": "haproxy.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/haproxy-intel:2",
+  "hostname": "haproxy",
+  "restart_policy": "always",
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "harbor-adapter-trivy",
+  "name": "harbor-adapter-trivy.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/harbor-adapter-trivy:2",
+  "hostname": "harbor-adapter-trivy",
+  "restart_policy": "always",
+  "ports": ["8080:8080/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/harbor-adapter-trivy/data",
+                    "bind": "/srv/harbor-adapter-trivy.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/harbor-adapter-trivy/config",
+                   "bind": "/srv/harbor-adapter-trivy.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/harbor-adapter-trivy/log",
+                   "bind": "/srv/harbor-adapter-trivy.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "harbor-core",
+  "name": "harbor-core.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/harbor-core:2",
+  "hostname": "harbor-core",
+  "restart_policy": "always",
+  "ports": ["8080:8080/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/harbor-core/data",
+                    "bind": "/srv/harbor-core.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/harbor-core/config",
+                   "bind": "/srv/harbor-core.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/harbor-core/log",
+                   "bind": "/srv/harbor-core.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "registry",
+  "name": "registry.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/harbor-registry:2",
+  "hostname": "registry",
+  "restart_policy": "always",
+  
+                 "volumes": [
+                  {
+                    "container": "/registry/data",
+                    "bind": "/srv/registry.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/registry/config",
+                   "bind": "/srv/registry.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/registry/log",
+                   "bind": "/srv/registry.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "harbor-jobservice",
+  "name": "harbor-jobservice.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/harbor-jobservice:2",
+  "hostname": "harbor-jobservice",
+  "restart_policy": "always",
+  "ports": ["8080:8080/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/harbor-jobservice/data",
+                    "bind": "/srv/harbor-jobservice.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/harbor-jobservice/config",
+                   "bind": "/srv/harbor-jobservice.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/harbor-jobservice/log",
+                   "bind": "/srv/harbor-jobservice.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "postgresql",
+  "name": "postgresql.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/postgresql:11",
+  "hostname": "postgresql",
+  "restart_policy": "always",
+  "ports": ["7899:7899/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/postgresql/data",
+                    "bind": "/srv/postgresql.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/postgresql/config",
+                   "bind": "/srv/postgresql.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/postgresql/log",
+                   "bind": "/srv/postgresql.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "postgresql",
+  "name": "postgresql.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/postgresql:11",
+  "hostname": "postgresql",
+  "restart_policy": "always",
+  "ports": ["7899:7899/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/postgresql/data",
+                    "bind": "/srv/postgresql.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/postgresql/config",
+                   "bind": "/srv/postgresql.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/postgresql/log",
+                   "bind": "/srv/postgresql.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "registry",
+  "name": "registry.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/harbor-registry:2",
+  "hostname": "registry",
+  "restart_policy": "always",
+  "ports": ["80:8080/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/registry/data",
+                    "bind": "/srv/registry.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/registry/config",
+                   "bind": "/srv/registry.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/registry/log",
+                   "bind": "/srv/registry.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "harbor-registry",
+  "name": "harbor-registry.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/harbor-registry:2",
+  "hostname": "harbor-registry",
+  "restart_policy": "always",
+  "ports": ["5000:5000/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/harbor-registry/data",
+                    "bind": "/srv/harbor-registry.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/harbor-registry/config",
+                   "bind": "/srv/harbor-registry.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/harbor-registry/log",
+                   "bind": "/srv/harbor-registry.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "harbor-registryctl",
+  "name": "harbor-registryctl.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/harbor-registryctl:2",
+  "hostname": "harbor-registryctl",
+  "restart_policy": "always",
+  "ports": ["8080:8080/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/harbor-registryctl/data",
+                    "bind": "/srv/harbor-registryctl.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/harbor-registryctl/config",
+                   "bind": "/srv/harbor-registryctl.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/harbor-registryctl/log",
+                   "bind": "/srv/harbor-registryctl.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "argo-cd",
+  "name": "argo-cd.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/argo-cd:2",
+  "hostname": "argo-cd",
+  "restart_policy": "always",
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "inc",
+  "name": "inc.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/inc-intel:1",
+  "hostname": "inc",
+  "restart_policy": "always",
+  
+                 "volumes": [
+                  {
+                    "container": "/inc/data",
+                    "bind": "/srv/inc.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/inc/config",
+                   "bind": "/srv/inc.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/inc/log",
+                   "bind": "/srv/inc.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "influxdb",
+  "name": "influxdb.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/influxdb:2",
+  "hostname": "influxdb",
+  "restart_policy": "always",
+  "ports": ["8086:8086/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/influxdb/data",
+                    "bind": "/srv/influxdb.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/influxdb/config",
+                   "bind": "/srv/influxdb.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/influxdb/log",
+                   "bind": "/srv/influxdb.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "mariadb",
+  "name": "mariadb.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/mariadb:10.6",
+  "hostname": "mariadb",
+  "restart_policy": "always",
+  "ports": ["80:8080/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/mariadb/data",
+                    "bind": "/srv/mariadb.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/mariadb/config",
+                   "bind": "/srv/mariadb.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/mariadb/log",
+                   "bind": "/srv/mariadb.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "java",
+  "name": "java.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/java:18",
+  "hostname": "java",
+  "restart_policy": "always",
+  "ports": ["080:8080volumes:-.:/app/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/java/data",
+                    "bind": "/srv/java.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/java/config",
+                   "bind": "/srv/java.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/java/log",
+                   "bind": "/srv/java.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "jenkins",
+  "name": "jenkins.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/jenkins:2",
+  "hostname": "jenkins",
+  "restart_policy": "always",
+  "ports": ["80:8080/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/jenkins/data",
+                    "bind": "/srv/jenkins.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/jenkins/config",
+                   "bind": "/srv/jenkins.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/jenkins/log",
+                   "bind": "/srv/jenkins.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "jmx-exporter",
+  "name": "jmx-exporter.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/jmx-exporter:0",
+  "hostname": "jmx-exporter",
+  "restart_policy": "always",
+  "ports": ["556:5556/tcp"],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "mariadb",
+  "name": "mariadb.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/mariadb:10.6",
+  "hostname": "mariadb",
+  "restart_policy": "always",
+  "ports": ["80:8080/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/mariadb/data",
+                    "bind": "/srv/mariadb.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/mariadb/config",
+                   "bind": "/srv/mariadb.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/mariadb/log",
+                   "bind": "/srv/mariadb.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "jruby",
+  "name": "jruby.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/jruby:9.3",
+  "hostname": "jruby",
+  "restart_policy": "always",
+  "ports": ["000:3000volumes:-.:/app/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/jruby/data",
+                    "bind": "/srv/jruby.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/jruby/config",
+                   "bind": "/srv/jruby.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/jruby/log",
+                   "bind": "/srv/jruby.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "jsonnet",
+  "name": "jsonnet.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/jsonnet:0",
+  "hostname": "jsonnet",
+  "restart_policy": "always",
+  
+                 "volumes": [
+                  {
+                    "container": "/jsonnet/data",
+                    "bind": "/srv/jsonnet.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/jsonnet/config",
+                   "bind": "/srv/jsonnet.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/jsonnet/log",
+                   "bind": "/srv/jsonnet.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "jupyter-base-notebook",
+  "name": "jupyter-base-notebook.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/jupyter-base-notebook:2",
+  "hostname": "jupyter-base-notebook",
+  "restart_policy": "always",
+  "ports": ["888:8888/tcp"],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "argo-workflows",
+  "name": "argo-workflows.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/argo-workflow-cli:3",
+  "hostname": "argo-workflows",
+  "restart_policy": "always",
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "jupyterhub",
+  "name": "jupyterhub.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/jupyterhub:1",
+  "hostname": "jupyterhub",
+  "restart_policy": "always",
+  "ports": ["081:8081/tcp"],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "zookeeper",
+  "name": "zookeeper.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/zookeeper:3.8",
+  "hostname": "zookeeper",
+  "restart_policy": "always",
+  "ports": ["2181:2181/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/zookeeper/data",
+                    "bind": "/srv/zookeeper.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/zookeeper/config",
+                   "bind": "/srv/zookeeper.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/zookeeper/log",
+                   "bind": "/srv/zookeeper.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "kafka-exporter",
+  "name": "kafka-exporter.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/kafka-exporter:1",
+  "hostname": "kafka-exporter",
+  "restart_policy": "always",
+  "ports": ["308:9308/tcp"],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "kapacitor",
+  "name": "kapacitor.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/kapacitor:1",
+  "hostname": "kapacitor",
+  "restart_policy": "always",
+  
+                 "volumes": [
+                  {
+                    "container": "/kapacitor/data",
+                    "bind": "/srv/kapacitor.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/kapacitor/config",
+                   "bind": "/srv/kapacitor.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/kapacitor/log",
+                   "bind": "/srv/kapacitor.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "postgresql",
+  "name": "postgresql.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/postgresql:11",
+  "hostname": "postgresql",
+  "restart_policy": "always",
+  "ports": ["80:8080/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/postgresql/data",
+                    "bind": "/srv/postgresql.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/postgresql/config",
+                   "bind": "/srv/postgresql.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/postgresql/log",
+                   "bind": "/srv/postgresql.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "keycloak-config-cli",
+  "name": "keycloak-config-cli.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/keycloak-config-cli:5",
+  "hostname": "keycloak-config-cli",
+  "restart_policy": "always",
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "kiam",
+  "name": "kiam.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/kiam:4",
+  "hostname": "kiam",
+  "restart_policy": "always",
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "elasticsearch",
+  "name": "elasticsearch.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/elasticsearch:8",
+  "hostname": "elasticsearch",
+  "restart_policy": "always",
+  "ports": ["5601:5601/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/elasticsearch/data",
+                    "bind": "/srv/elasticsearch.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/elasticsearch/config",
+                   "bind": "/srv/elasticsearch.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/elasticsearch/log",
+                   "bind": "/srv/elasticsearch.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "postgresql",
+  "name": "postgresql.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/postgresql:11",
+  "hostname": "postgresql",
+  "restart_policy": "always",
+  "ports": ["8000:8000/tcp"],
+  
+                 "volumes": [
+                  {
+                    "container": "/postgresql/data",
+                    "bind": "/srv/postgresql.bit.lan/docker/data",
+                    "readonly": false
+                  },
+          
+                  {
+                   "container": "/postgresql/config",
+                   "bind": "/srv/postgresql.bit.lan/docker/config",
+                   "readonly": false
+                }
+                ,
+                  {
+                   "container": "/postgresql/log",
+                   "bind": "/srv/postgresql.bit.lan/docker/log",
+                   "readonly": false
+                }
+                 ],
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       },
+       {
+          "type": 1,
+          "title" : "kong-ingress-controller",
+  "name": "kong-ingress-controller.bit.lan",
+  "platform": "linux",
+  "administrator_only": false,
+  "image" : "docker.io/bitnami/kong-ingress-controller:2",
+  "hostname": "kong-ingress-controller",
+  "restart_policy": "always",
+          "labels": [
+          { "name": "com.centurylinklabs.watchtower.enable", "value": "true" }
+        ]
+       }
+   
+          
+   ]
+      }
+      
